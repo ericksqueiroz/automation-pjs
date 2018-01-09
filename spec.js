@@ -32,7 +32,16 @@ describe('Fluxo de Compras - Captorcedor', function() {
     browser.pause(5000);
   });
 
-  // it('Captorcedor - Passo 3', function() {
-
-  // });
+  it('Captorcedor - Passo 3', function() {
+  	browser.
+  	element(by.id('agencia')).sendKeys('0612');
+  	element(by.id('txtconta')).sendKeys('00004372');
+  	element(by.id('dv')).sendKeys('4');
+  	element(by.id('ddlTipoConta')).$('[value="001"]').click();
+    element(by.id('ddlDataDebito')).$('[value="20/01/2018"]').click();
+    element(by.id('btnAvancarPasso4Novo')).click();
+    expect(element(by.className('divErro')).getText()).
+    	toBe('O serviço está indisponível no momento. Por favor, tente novamente mais tarde.');
+    browser.pause(5000);
+  });
 });
